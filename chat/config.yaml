@@ -1,0 +1,32 @@
+# common environments
+common: &commonEnvironment
+  enviroment: common
+  apiName : chat
+  apiVersion: v1
+  # Server configurations
+  server:
+    debug: false
+    port: 8080
+    baseUrl: localhost
+    log: logs/server.log
+  # database credentials
+  database:
+    host: 127.0.0.1
+    port: 3306
+    name: test
+    log: logs/database.log
+
+# test environments
+local:
+  <<: *commonEnvironment
+  enviroment: local
+
+# development environments `
+development:
+  <<: *commonEnvironment
+  enviroment: development
+
+# production environments
+production:
+  <<: *commonEnvironment
+  enviroment: production
